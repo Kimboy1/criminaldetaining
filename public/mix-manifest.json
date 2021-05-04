@@ -1,0 +1,9 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/bs-custom-file-input.min.js": "/js/bs-custom-file-input.min.js",
+    "/js/select2.full.min.js": "/js/select2.full.min.js",
+    "/css/select2.min.css": "/css/select2.min.css",
+    "/css/select2-bootstrap4.min.css": "/css/select2-bootstrap4.min.css",
+    "/js/tempusdominus-bootstrap-4.min.js": "/js/tempusdominus-bootstrap-4.min.js"
+}
