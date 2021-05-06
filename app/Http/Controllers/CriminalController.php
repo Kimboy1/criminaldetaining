@@ -39,7 +39,7 @@ class CriminalController extends Controller
         if($request->hasFile('criminal_image')){
             
             $file = $request->file('criminal_image');
-            $name =  str_replace(' ','_',$request->criminal_name).$file->getClientOriginalExtension();  
+            $name =  str_replace(' ','_',$request->movie_name).'.'.$file->getClientOriginalExtension();  
             
             try{
                 Storage::disk('disk')->putFileAs('Documents/', $file,$name);
