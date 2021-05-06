@@ -65,7 +65,7 @@
                             <img class="card-img-top" src="{{ $criminal->criminal_image }}" alt="{{ $criminal->criminal_name }} ">
 
                             <div class="card-body">
-                              <h5 class="card-title">{{ $criminal->criminal_name }}</h5>
+                              <h5 class="card-title">Name : {{ $criminal->criminal_name }}</h5>
                               <p class="card-text">Age : {{ $criminal->criminal_age }}</p>
                               <p class="card-text">Gender : {{ $criminal->criminal_gender }}</p>
                               <p class="card-text">Address : {{ $criminal->criminal_address }}</p>
