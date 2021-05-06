@@ -28,9 +28,9 @@ class CriminalController extends Controller
 
     public function store(CriminalCreateValidation $request)
     {
-        dd("reached here");
+        
         $criminal = Criminal::create([
-            'criminal_name' => $request->movie_name,
+            'criminal_name' => $request->criminal_name,
             'criminal_address' => $request->criminal_address,
             'criminal_age' => $request->criminal_age,
             'criminal_gender' => $request->criminal_gender
@@ -39,10 +39,10 @@ class CriminalController extends Controller
         if($request->hasFile('criminal_image')){
             
             $file = $request->file('criminal_image');
-            $name =  str_replace(' ','_',$request->movie_name).'.'.$file->getClientOriginalExtension();  
+            $name =  str_replace(' ','_',$request->criminal_name).'.'.$file->getClientOriginalExtension();  
             
             try{
-                Storage::disk('disk')->putFileAs('Documents/', $file,$name);
+                Storage::disk('public')->putFileAs('Documents/', $file,$name);
             }catch(\Exception $e)
             {
                 dd($e->getMessage());
@@ -67,9 +67,9 @@ class CriminalController extends Controller
 
     public function delete(Request $request)
     {
-        $movie = Movies::find($request->id);
-        if($movie){
-            $movie->delete();
+        $criminal = Criminal::find($request->id);
+        if($criminal){
+            $criminal->delete();
             Toastr::success('Criminal deleted successfully');
         }else{
             Toastr::error('Unable to delete movie');

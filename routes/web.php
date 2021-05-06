@@ -28,7 +28,7 @@ Route::post('/dashboard/criminal/add' ,[App\Http\Controllers\CriminalController:
 Route::get('/dashboard/criminal/edit' ,[App\Http\Controllers\CriminalController::class, 'edit'])->name('criminal.edit');  
 Route::post('/dashboard/criminal/edit' ,[App\Http\Controllers\CriminalController::class, 'update'])->name('criminal.edit');      
 
-Route::get('/dashboard/criminal/delete/{id}' ,[App\Http\Controllers\Auth\CriminalController::class, 'delete'])->name('criminal.delete');  
+Route::get('/dashboard/criminal/delete/{id}' ,[App\Http\Controllers\CriminalController::class, 'delete'])->name('criminal.delete');  
 
 Auth::routes();
 

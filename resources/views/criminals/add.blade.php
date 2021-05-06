@@ -46,7 +46,7 @@
                   </div>
                   <div class="form-group">
                     <label for="CriminalAge">Criminal Age </label>
-                    <input type="text" class="form-control" id="criminalAge" placeholder="Enter Criminal Age" name="criminal_Age">
+                    <input type="text" class="form-control" id="criminalAge" placeholder="Enter Criminal Age" name="criminal_age">
                   </div>
                   <div class="form-group">
                     <label for="CriminalGender">Criminal Gender </label>

@@ -28,7 +28,7 @@
                 <div class="inner">
                     <h3>{{ $criminalCount }}</h3>
 
-                    <p>TOTAL MOVIES</p>
+                    <p>TOTAL CRIMINALS</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
@@ -58,43 +58,30 @@
             <div class="card-body">
               <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row">
-                  <div class="col-sm-12 col-md-6"></div>
-                  <div class="col-sm-12 col-md-6"></div>
+                @if (!empty($criminals))
+                    @foreach($criminals as $criminal)
+                        <div class="col-sm-3 col-md-3">
+                          <div class="card">
+                            <img class="card-img-top" src="{{ $criminal->criminal_image }}" alt="{{ $criminal->criminal_name }} ">
+
+                            <div class="card-body">
+                              <h5 class="card-title">{{ $criminal->criminal_name }}</h5>
+                              <p class="card-text">Age : {{ $criminal->criminal_age }}</p>
+                              <p class="card-text">Gender : {{ $criminal->criminal_gender }}</p>
+                              <p class="card-text">Address : {{ $criminal->criminal_address }}</p>
+                              <a href="{{ route('criminal.delete',$criminal->id) }}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                          </div>
+                        </div>
+                        @endforeach
+                @else
+                  <div class="col-md-3 justify-center" style="margin:10px">
+                        <h5 class="card-title">No Movies available</h5>
+                        
+                  </div>
+                @endif
                 </div>
                 <div class="row">
-                  <div class="col-sm-12">
-                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                      <thead>
-                        <tr role="row">
-                          <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Criminal Name </th>
-                          <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Criminal Address </th>
-                          <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Criminal Gender </th>
-                          <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Criminal Age </th>
-                          <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Created </th>
-                          <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      @foreach($criminals as $criminal)
-                        <tr role="row" class="odd">
-                          <td class="sorting_1">{{ $criminal->criminal_name }}</td>
-                          <td>{{ $criminal->criminal_address }}</td>
-                          <td>{{ $criminal->criminal_gender }}</td>
-                          <td>{{ $criminal->criminal_age }}</td>
-                          <td>{{ $criminal->created_at }}</td>
-                    
-                          <td>
-                            <div class="row">
-                              <div class="col-md-6"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
-                              <div class="col-md-6"><a href="{{ route('criminal.delete',$criminal->id) }}"><i class="fa fa-times" aria-hidden="true"></i></a></div>
-                            </div>
-                          </td>
-                        </tr>
-                        @endforeach
-                      </tbody>
-                    
-                    </table>
-                  </div>
+                 
                 </div>
                 
               </div>
